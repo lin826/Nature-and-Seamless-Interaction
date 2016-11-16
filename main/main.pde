@@ -1,6 +1,13 @@
+<<<<<<< HEAD
 import beads.*;
 import java.util.Arrays; 
 
+=======
+
+import beads.*;
+import java.util.Arrays; 
+
+>>>>>>> af1872f56a1c233d87df5731568d9b61a97685ed
 AudioContext ac;
 
 void setup() {
