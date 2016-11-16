@@ -1,3 +1,5 @@
+import ddf.minim.*;
+
 Minim minim;
 AudioPlayer player;
 AudioInput input;
