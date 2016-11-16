@@ -1,19 +1,33 @@
-import ddf.minim.*;
+mport beads.*;
+import java.util.Arrays; 
 
-Minim minim;
-AudioPlayer player;
-AudioInput input;
- 
-void setup()
-{
-  size(100, 100);
- 
-  minim = new Minim(this);
-  player = minim.loadFile("song.mp3");
-  input = minim.getLineIn();
+AudioContext ac;
+
+void setup() {
+  ac = new AudioContext();
+  fileSelected();
 }
- 
-void draw()
-{
-  // do what you do
-}  
+
+void fileSelected() {
+  /*
+   * Here's how to play back a sample.
+   * 
+   * The first line gives you a way to choose the audio file.
+   * The (commented, optional) second line allows you to stream the audio rather than loading it all at once.
+   * The third line creates a sample player and loads in the Sample.
+   * SampleManager is a utility which keeps track of loaded audio
+   * files according to their file names, so you don't have to load them again.
+   */
+  String audioFileName = dataPath("test.mp3");
+  SamplePlayer player = new SamplePlayer(ac, SampleManager.sample(audioFileName));
+  
+  Gain g = new Gain(ac, 2, 0.2);
+  g.addInput(player);
+  ac.out.addInput(g);
+  ac.start();
+  
+}
+
+
+void draw() {
+}
