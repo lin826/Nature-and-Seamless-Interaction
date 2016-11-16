@@ -2,7 +2,6 @@ import ddf.minim.*;
 
 Minim minim;
 AudioPlayer player;
-AudioInput input;
  
 void setup()
 {
@@ -10,7 +9,7 @@ void setup()
  
   minim = new Minim(this);
   player = minim.loadFile("song.mp3");
-  input = minim.getLineIn();
+  player.play();
 }
  
 void draw()
