@@ -119,7 +119,7 @@ void CircleOn(){
   int[] p = {1,1,1};
   for(int i=0;i<p.length;i++){
     setPorts(p);
-    m.switchon(ports,3,4000);
+    m.switchon(ports,1,4000);
     delay(200);
     for(int j=0;j<p.length;j++){
       p[j] = (p[j]+1)%p.length+1;
