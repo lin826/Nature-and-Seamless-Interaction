@@ -288,9 +288,9 @@ public void Swing(){
   int[][] p={{start+2,start+1,start},{start+3,start+2,start+1},{start+4,start+3,start+2},
     {start+3,start+4,start+2},{start+2,start+3,start+4},{start+1,start+2,start+3},
     {start,start+1,start+2},{start+1,start,start+2},{start+2,start+1,start}};
-  for(int i=0;i<2;i++){ // Come and go twice
+  for(int i=0;i<5;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
-      m.off(ports,0);
+      m.alloff();
       setPorts(p[j]);
       m.gradienton(ports,2000);
       delay(200);
