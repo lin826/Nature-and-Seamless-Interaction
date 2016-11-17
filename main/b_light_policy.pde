@@ -101,7 +101,7 @@ void CircleBlink(){
 void Swing(){
   int start = 3;
   int[][] p={{start+2,start+1,start},{start+3,start+2,start+1},{start+4,start+3,start+2},
-    {start+3,start+4,start+2},{start+2,start+3,start+4},{start+1,start+2,start+3},
+    {start+2,start+4,start+3},{start+2,start+3,start+4},{start+1,start+2,start+3},
     {start,start+1,start+2},{start+1,start,start+2},{start+2,start+1,start}};
   for(int i=0;i<2;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
