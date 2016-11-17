@@ -107,7 +107,7 @@ void Swing(){
     for(int j=0;j<p.length;j++){
       setPorts(p[j]);
       m.alloff();
-      m.on(ports,2000);
+      m.on(ports,4000);
       delay(200);
     }
   }
