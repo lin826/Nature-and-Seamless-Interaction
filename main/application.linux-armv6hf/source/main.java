@@ -210,6 +210,7 @@ public void m_setup(){
 }
 
 public void m_draw(String mode){
+  try{
   Swing();
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
@@ -242,6 +243,9 @@ public void m_draw(String mode){
   } else if(mode.equals("4_2")){
     Sync(); // Sync success that adjust by user
   }*/
+  } catch (Exception e){
+    println("Error in m_draw(): ",e);
+  }
 }
 public void oneFadeIn(){
   int[] p = {0};
@@ -634,7 +638,7 @@ class Methods {
     this.portList = portList; 
      for(int i=0;i<portList.size();i++){
        p= (ArrayList) portList.get(i);
-       this.brightness = brightness/i+1; 
+       this.brightness = brightness/(i+1); 
        type(0);
      }
    }
