@@ -28,8 +28,8 @@ void m_draw(String mode){
   int[] p = {0};
   setPorts(p);
   for(ArrayList<Integer> list: ports){
-    for(Integer i: list){
-      print(i," ");
+    for(int i: list){
+      print(i+" ");
     }
     println();
   }
