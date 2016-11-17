@@ -26,7 +26,7 @@ void m_setup(){
 
 void m_draw(String mode){
   try{
-  Swing();
+    CircleOn();
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
@@ -57,6 +57,8 @@ void m_draw(String mode){
     allFade(); // others also wake up 
   } else if(mode.equals("4_2")){
     Sync(); // Sync success that adjust by user
+  } else if(mode.equals("5")){
+    CircleOn(); // Sync success that adjust by user
   }*/
   } catch (Exception e){
     println("Error in m_draw(): ",e);
@@ -104,7 +106,7 @@ void Swing(){
     {start+3,start+2,start+1,start,start+4},{start+4,start+3,start+2,start+1,start},
     {start+3,start+4,start+2,start+1,start},{start+2,start+3,start+4,start+1,start},{start+1,start+2,start+3,start,start+4},
     {start,start+1,start+2,start+4,start+3},{start+1,start,start+2,start+4,start+3},{start+2,start+1,start,start+4,start+3}};
-  for(int i=0;i<5;i++){ // Come and go twice
+  for(int i=0;i<3;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
       setPorts(p[j]);
       m.switchon(ports,3,4000);
@@ -112,6 +114,17 @@ void Swing(){
     }
   }
   m.alloff();
+}
+void CircleOn(){
+  int[] p = {1,2,3,4,5,6,7,8};
+  for(int i=0;i<ports.size();i++){
+    setPorts(p);
+    m.switchon(ports,3,4000);
+    delay(200);
+    for(int j=0;j<p.length;j++){
+      p[j] = (p[j]+1)%p.length+1;
+    }
+  }
 }
 void Sync(){
   int[] p_1 = {1,3,5,7};
