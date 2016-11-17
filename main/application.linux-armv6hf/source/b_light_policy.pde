@@ -120,7 +120,6 @@ void setPorts(int[] pins){
        temp.add(channels.get(i).get(j));
      }
      ports.add(temp);
-     temp.clear();
   }
   for(ArrayList<Integer> list: ports){
     for(int i: list){
