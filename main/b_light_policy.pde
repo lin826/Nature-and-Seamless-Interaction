@@ -125,6 +125,7 @@ void Quit(){
   for(int i=0;i<p.length;i++){
     setPorts(p[i]);
     m.on(ports,4000);
+    delay(500);
   }
   m.alloff();
 }
