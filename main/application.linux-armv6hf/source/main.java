@@ -295,6 +295,7 @@ public void Swing(){
       delay(200);
     }
   }
+  m.alloff();
 }
 public void Sync(){
   int[] p_1 = {1,3,5,7};
