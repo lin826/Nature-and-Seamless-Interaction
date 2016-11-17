@@ -638,7 +638,7 @@ class Methods {
     this.portList = portList; 
      for(int i=0;i<portList.size();i++){
        p= (ArrayList) portList.get(i);
-       this.brightness = brightness/(i+1); 
+       this.brightness = brightness/portList.size()*(i+1); 
        type(0);
      }
    }
