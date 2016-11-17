@@ -98,12 +98,19 @@ void CircleBlink(){
 void Sync(){
   int[] p_1 = {1,3,5,7};
   int[] p_2 = {2,4,6,8};
-  for(int i=0;i<3;i++){
     setPorts(p_1);
-    m.blink_more(ports,1,200,4000);
+    m.alloff();
+    m.on(ports,4000);
+    delay(300);
     setPorts(p_2);
-    m.blink_more(ports,1,200,4000);
-  }
+    m.alloff();
+    m.on(ports,4000);
+    delay(300);
+    setPorts(p_1);
+    m.alloff();
+    m.on(ports,4000);
+    delay(300);
+    m.alloff();
 }
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
 void setPorts(int[] pins){

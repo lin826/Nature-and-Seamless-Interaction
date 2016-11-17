@@ -194,10 +194,10 @@ class Methods {
 
 
   
-  //method: switch on selected lights 
+  //method: switch on selected lights  one by one
   //paused: duration of wait between two lights switching on, if any
   //brightness: how bright the light is when turned on, with 0 being no light and 4095 being the brightest 
-  void on(ArrayList portList, int paused,int brightness){
+  void on1(ArrayList portList, int paused,int brightness){
     
     this.portList = portList; 
     this.brightness= brightness;
@@ -215,6 +215,18 @@ class Methods {
         delay(paused);
       }
     }      
+   }
+   
+   //method: switch on selected lights 
+   //brightness: how bright the light is when turned on, with 0 being no light and 4095 being the brightest 
+   void on(ArrayList portList,int brightness){
+    this.portList = portList; 
+   
+     for(int i=0;i<portList.size();i++){
+       p= (ArrayList) portList.get(i);
+       this.brightness = brightness; 
+       type(0);
+     }
    }
   
   
