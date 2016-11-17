@@ -210,7 +210,8 @@ public void m_setup(){
 }
 
 public void m_draw(String mode){
-  if(mode.equals("1") && setting_data[1].equals("3")){
+  CircleBlink();
+  /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
   } else if(mode.equals("-1")){
@@ -241,7 +242,7 @@ public void m_draw(String mode){
     allFade(); // others also wake up 
   } else if(mode.equals("4_2")){
     Sync(); // Sync success that adjust by user
-  }
+  }*/
 }
 public void oneFadeIn(){
   int[] p = {0};
@@ -275,7 +276,7 @@ public void CrossBlink(){
 public void CircleBlink(){
   int[] p = {1,2,3,4,5,6,7,8};
   setPorts(p);
-  m.blink_more(ports,3,3000,4000);
+  m.blink_more(ports,2,2000,4000);
 }
 public void Sync(){
   int[] p_1 = {1,3,5,7};
