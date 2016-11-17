@@ -26,8 +26,7 @@ void m_setup(){
 
 void m_draw(String mode){
   try{
-    Quit();
-  /*if(mode.equals("1") && setting_data[1].equals("3")){
+  if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
   } else if(mode.equals("-1")){
@@ -63,7 +62,7 @@ void m_draw(String mode){
     m.allon(); // Sync success that adjust by user
   } else if(mode.equals("-5") && setting_data[1].equals("1")){
     Quit(); // Sync success that adjust by user
-  }*/
+  }
   } catch (Exception e){
     println("Error in m_draw(): ",e);
   }
@@ -125,7 +124,7 @@ void Quit(){
   for(int i=0;i<p.length;i++){
     setPorts(p[i]);
     m.on(ports,4000);
-    delay(500);
+    delay(400);
   }
   m.alloff();
 }
