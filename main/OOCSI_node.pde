@@ -2,8 +2,7 @@
 public class Node{
   OOCSI oocsi;
   String server_ip = "oocsi.id.tue.nl";
-  int server_port = 4444;
-  String my_ip="";
+  String my_ip="0";
   String MODE = "0";
   String STATUS = "0";
  
@@ -18,14 +17,13 @@ public class Node{
  void connectOOCSI(String ServerIP,int ServerPort){
     // OOCSI channel connect
     server_ip = ServerIP;
-    server_port = ServerPort;
     oocsi = new OOCSI(this,ServerIP, ServerIP,ServerPort);
     oocsi.subscribe(ServerIP);
   }
   void connectOOCSI(){
     // OOCSI channel connect
-    oocsi = new OOCSI(this,my_ip, server_ip,server_port);
-    oocsi.subscribe(server_ip);
+    oocsi = new OOCSI(this,my_ip, server_ip);
+    oocsi.subscribe("Server");
   }
   
  boolean sendMessage(OOCSI oocsi,String function_name , String msg){
@@ -90,7 +88,14 @@ public class Node{
     }
         }
   }
-  public void handleOOCSIEvent(OOCSIEvent msg){
+  
+  public void handleOOCSIEvent(OOCSIEvent msg) {
+    // print out all values in message
+    print(msg.getString("sender_ip")+": ");
+    print(msg.getString("function")+"(");
+    println(msg.getString("io_msg")+")");
+  }
+  public void Server(OOCSIEvent msg){
     if (!STATUS.equals("Unconnected") && (msg.getString("sender_ip").equals("Server"))){
     try{
       print(msg.getString("sender_ip")+": ");
