@@ -284,7 +284,7 @@ public void CircleBlink(){
   m.blink_more(ports,2,200,4000);
 }
 public void Swing(){
-  int[][] p={{3,2,1},{4,3,2},{5,4,3},{4,5,3},{3,4,5},{2,3,4},{1,2,3},{2,1,3}};
+  int[][] p={{6,5,4},{7,6,5},{8,7,6},{7,8,6},{6,7,8},{5,6,7},{4,5,6},{5,4,6},{6,5,4}};
   for(int i=0;i<2;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
       m.off(ports,0);
@@ -292,7 +292,6 @@ public void Swing(){
       m.gradienton(ports,2000);
       delay(200);
     }
-    delay(200);
   }
 }
 public void Sync(){
