@@ -116,11 +116,14 @@ void Swing(){
   m.alloff();
 }
 void CircleOn(){
+  int[] p_1 = {8};
+  setPorts(p_1);
+  m.on(ports,3000);
   int[] p = {8,7,6,5,4,3,2,1};
   for(int i=0;i<p.length;i++){
     setPorts(p);
     m.switchon(ports,3,4000);
-    delay(500);
+    delay(200);
     for(int j=0;j<p.length;j++){
       p[j] = p[j]%p.length+1;
     }
