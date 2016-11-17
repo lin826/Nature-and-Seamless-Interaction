@@ -25,7 +25,7 @@ void m_setup(){
 }
 
 void m_draw(String mode){
-  CircleBlink();
+  CrossBlink();
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
@@ -86,7 +86,7 @@ void OutsideIn(){
 void CrossBlink(){
   int[] p = {0,1,3,5,7};
   setPorts(p);
-  m.blink_more(ports,2,1,4000);
+  m.blink_more(ports,2,200,4000);
 }
 void CircleBlink(){
   int[] p = {1,2,3,4,5,6,7,8};
