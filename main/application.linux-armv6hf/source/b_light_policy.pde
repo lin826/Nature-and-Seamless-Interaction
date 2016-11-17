@@ -27,6 +27,12 @@ void m_setup(){
 void m_draw(String mode){
   int[] p = {0};
   setPorts(p);
+  for(ArrayList<Integer> list: ports){
+    for(Integer i: list){
+      print(i," ");
+    }
+    println();
+  }
   m.fadein(ports,4000);
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
