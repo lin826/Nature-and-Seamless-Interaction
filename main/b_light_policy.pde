@@ -120,11 +120,12 @@ void CircleOn(){
   for(int i=0;i<p.length;i++){
     setPorts(p);
     m.switchon(ports,3,4000);
-    delay(200);
+    delay(500);
     for(int j=0;j<p.length;j++){
       p[j] = (p[j]+1)%p.length+1;
     }
   }
+  m.alloff();
 }
 void Sync(){
   int[] p_1 = {1,3,5,7};
