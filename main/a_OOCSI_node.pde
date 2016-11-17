@@ -98,6 +98,8 @@ public class Node{
       println(msg.getString("io_msg")+")");
       if(msg.getString("function").equals("setMode")){
         setMode(msg.getString("io_msg"));
+        m_draw(msg.getString("io_msg"));
+        sendMessage("reportFinish",my_ip);
       }
       else if(msg.getString("function").equals("setSetting")){
         setSetting(msg.getString("io_msg"));
@@ -105,7 +107,6 @@ public class Node{
       else{
         commandLine(msg.getString("function"));
       }
-      m_draw();
     } catch(Exception e){
       println("Next stage error");
     }

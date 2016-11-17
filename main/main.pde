@@ -10,7 +10,6 @@ String setting_data[]  = {"0","0","0"};
 // ID: Control the sound to use
 // Mode: Control the task to demo
 
-String ID = "00000";
 Node node;
 
 void setup(){

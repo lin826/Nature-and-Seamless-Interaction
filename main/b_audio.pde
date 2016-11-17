@@ -7,7 +7,6 @@ class Audio{
   void init(String s) {
     ac = new AudioContext();
     fileSelected(s);
-    ac.start();
   }
 
   void fileSelected(String fileName) {
@@ -20,15 +19,14 @@ class Audio{
    * SampleManager is a utility which keeps track of loaded audio
    * files according to their file names, so you don't have to load them again.
    */
+  println(fileName);
   String audioFileName = dataPath("audio/"+fileName);
   SamplePlayer player = new SamplePlayer(ac, SampleManager.sample(audioFileName));
   
   Gain g = new Gain(ac, 2, 0.2);
   g.addInput(player);
   ac.out.addInput(g);
+  ac.start();
   }
   
-  void play(){
-    ac.start();
-  }
 }
