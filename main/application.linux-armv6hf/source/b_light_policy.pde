@@ -5,7 +5,7 @@ ArrayList<ArrayList<Integer>> channels = new ArrayList<ArrayList<Integer>>();
 ArrayList <ArrayList<Integer>> ports = new ArrayList<ArrayList<Integer>>();
 
 Methods m;
-Audio audio;
+Audio audio = new Audio();
 
 void m_setup(){
   //m is class where different light behaviours are, behaviours can be combined to form desired patterns 
@@ -26,37 +26,72 @@ void m_setup(){
 
 void m_draw(String mode){
   if(mode.equals("1") && setting_data[1].equals("3")){
-    Audio audio = new Audio();
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
   } else if(mode.equals("-1")){
-    Audio audio = new Audio();
     audio.init("turnon/turnon_"+setting_data[1]+".wav");
     oneFadeIn();
   } else if(mode.equals("2_"+setting_data[1])){
-    Audio audio = new Audio();
     audio.init("install/install_"+setting_data[1]+".wav");
     oneFadeIn();
   } else if(mode.equals("2")){
-    Audio audio = new Audio();
     audio.init("install/install_finish.wav");
+    oneFadeIn();
+  } else if(mode.equals("3")  && setting_data[1].equals("3")){
+    insideOut();
+  } else if(mode.equals("-3")  && !setting_data[1].equals("3")){
+    OutsideIn();
+  } else if(mode.equals("3_2")  && setting_data[1].equals("1")){
+    CrossBlink(); // Task reject
+  } else if(mode.equals("3_2")  && setting_data[1].equals("2")){
+    CircleBlink(); // Task agree
+  } else if(mode.equals("3_2")  && setting_data[1].equals("4")){
+    CircleBlink(); // Task agree
+  } else if(mode.equals("3_2")  && setting_data[1].equals("5")){
+    CircleBlink(); // Task unknown
   }
+  
 }
 void oneFadeIn(){
-  ArrayList<ArrayList<Integer>> perform_list = new ArrayList<ArrayList<Integer>>(); 
-  perform_list.add(channels.get(0));
-  m.fadein(perform_list,4000);
+  int[] p = {0};
+  setPorts(p);
+  m.fadein(ports,4000);
 }
-
+void insideOut(){
+  int[] p_1 = {0};
+  setPorts(p_1);
+  int[] p_2 = {1,2,3,4,5,6,7,8};
+  setPorts(p_2);
+  m.fade(1,ports,4000);
+}
+void OutsideIn(){
+  int[] p_1 = {1,2,3,4,5,6,7,8};
+  int[] p_2 = {0};
+  setPorts(p_1);
+  setPorts(p_2);
+  m.fade(1,ports,4000);
+}
+void CrossBlink(){
+  int[] p = {0,1,3,5,7};
+  setPorts(p);
+  m.blink_more(ports,2,1,4000);
+}
+void CircleBlink(){
+  int[] p = {1,2,3,4,5,6,7,8};
+  setPorts(p);
+  m.blink_more(ports,2,1,4000);
+}
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
-void setPorts(int[] pins){ 
+void setPorts(int[] pins){
+  ports.clear();
   for(int i : pins){
      ArrayList<Integer> temp  = new ArrayList<Integer> (); 
      for(int  j=0;  j<channels.get(i).size(); j++){
        temp.add(channels.get(i).get(j));
      }     
      ports.add(temp);
-  } 
+     temp.clear();
+  }
 }
 /*for(int i=1;i<5;i++){
     adio_list.add(new Audio());
