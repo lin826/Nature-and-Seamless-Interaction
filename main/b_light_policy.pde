@@ -118,7 +118,7 @@ void Swing(){
 void CircleOn(){
   int[] p_1 = {8};
   setPorts(p_1);
-  m.fade(1,ports,2000);
+  m.fadein(ports,2000);
   int[] p = {8,7,6,5,4,3,2,1};
   for(int i=0;i<p.length;i++){
     setPorts(p);
