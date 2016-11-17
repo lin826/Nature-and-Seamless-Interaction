@@ -303,11 +303,15 @@ public void setPorts(int[] pins){
      ArrayList<Integer> temp  = new ArrayList<Integer> (); 
      for(int  j=0;  j<channels.get(i).size(); j++){
        temp.add(channels.get(i).get(j));
-       print(channels.get(i).get(j)+" ");
-     }     
-     println();
+     }
      ports.add(temp);
      temp.clear();
+  }
+  for(ArrayList<Integer> list: ports){
+    for(int i: list){
+      print(i+" ");
+    }
+    println();
   }
 }
 /*for(int i=1;i<5;i++){
