@@ -17,7 +17,7 @@ void setup(){
   updateSetting();
   printSetting();
   
-  m_setup();
+  //m_setup();
   
   node = new Node();
   node.connectOOCSI();

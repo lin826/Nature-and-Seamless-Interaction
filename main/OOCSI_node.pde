@@ -7,7 +7,7 @@ public class Node{
   String MODE = "0";
   String STATUS = "0";
  
-  String serverDir = "./Documents/Nature-and-Seamless-Interaction";
+  String serverDir = "/home/pi/Documents/Nature-and-Seamless-Interaction";
   File workingDir = new File(serverDir);
   
  Node(){
@@ -48,15 +48,15 @@ public class Node{
     return null;
   }
   private String getIP(){
-  String prefex = "inet "; 
-  String suffix = " netmask";
+  String prefex = "    inet "; 
+  String suffix = " brd";
   String except = "127.0.0.1";
   try{
-    BufferedReader stdInput = commandLine("ifconfig");
+    BufferedReader stdInput = commandLine("sudo ip addr show");
     String returnedValues; 
     while ( (returnedValues = stdInput.readLine ()) != null) {
         if(returnedValues.contains(prefex) && !returnedValues.contains(except)){
-          String mIP = returnedValues.substring(prefex.length()+1,returnedValues.indexOf(suffix));
+          String mIP = returnedValues.substring(prefex.length(),returnedValues.indexOf(suffix));
           println("Host IP: "+ mIP);
           return mIP;
         }
