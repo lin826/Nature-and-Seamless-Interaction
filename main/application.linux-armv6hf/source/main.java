@@ -257,18 +257,18 @@ public void allFade(){
 public void insideOut(){
   int[] p_1 = {0};
   setPorts(p_1);
-  m.fade(1,ports,1500);
+  m.fade(1,ports,1800);
   int[] p_2 = {1,2,3,4,5,6,7,8};
   setPorts(p_2);
-  m.fade(1,ports,1000);
+  m.fade(1,ports,1200);
 }
 public void OutsideIn(){
   int[] p_1 = {1,2,3,4,5,6,7,8};
   int[] p_2 = {0};
   setPorts(p_1);
-  m.fade(1,ports,1000);
+  m.fade(1,ports,1200);
   setPorts(p_2);
-  m.fade(1,ports,1500);
+  m.fade(1,ports,1800);
 }
 public void CrossBlink(){
   int[] p = {0,2,4,6,8};
@@ -285,9 +285,11 @@ public void Sync(){
   int[] p_2 = {2,4,6,8};
   for(int i=0;i<3;i++){
     setPorts(p_1);
-    m.on(ports,1,4000);
+    m.on(ports,1000,4000);
+    m.off(ports,1000);
     setPorts(p_2);
-    m.on(ports,1,4000);
+    m.on(ports,1000,4000);
+    m.off(ports,1000);
   }
 }
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
