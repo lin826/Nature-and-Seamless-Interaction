@@ -237,7 +237,7 @@ class Methods {
        if(i>=firstNum)
          type(1);
        else {
-         this.brightness = brightness; 
+         this.brightness = brightness/portList.size()*i; 
          type(0);
        }
      }
