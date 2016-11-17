@@ -90,7 +90,7 @@ void CrossBlink(){
 void CircleBlink(){
   int[] p = {1,2,3,4,5,6,7,8};
   setPorts(p);
-  m.blink_more(ports,2,1000,4000);
+  m.blink_more(ports,3,3000,4000);
 }
 void Sync(){
   int[] p_1 = {1,3,5,7};

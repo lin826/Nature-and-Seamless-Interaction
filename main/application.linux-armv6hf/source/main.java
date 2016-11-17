@@ -234,6 +234,7 @@ public void m_draw(String mode){
     CircleBlink(); // Task agree
   } else if(mode.equals("3_2")  && setting_data[1].equals("5")){
     CircleBlink(); // Task unknown
+    // Task unknown// Task unknown// Task unknown// Task unknown!!!!!
   } else if(mode.equals("4")  && setting_data[1].equals("3")){
     insideOut();
   } else if(mode.equals("-4")  && !setting_data[1].equals("3")){
@@ -274,7 +275,7 @@ public void CrossBlink(){
 public void CircleBlink(){
   int[] p = {1,2,3,4,5,6,7,8};
   setPorts(p);
-  m.blink_more(ports,2,1,4000);
+  m.blink_more(ports,3,3000,4000);
 }
 public void Sync(){
   int[] p_1 = {1,3,5,7};
