@@ -284,7 +284,9 @@ public void CircleBlink(){
   m.blink_more(ports,2,200,4000);
 }
 public void Swing(){
-  int[][] p={{6,5,4},{7,6,5},{8,7,6},{7,8,6},{6,7,8},{5,6,7},{4,5,6},{5,4,6},{6,5,4}};
+  int start = 3;
+  int[][] p={{start+2,start+1,start},{start+3,start+2,start+1},
+        {start+4,start+3,start+2},{start+3,start+4,start+2},{start+2,start+3,start+4},{start+1,start+2,start+3},{start,start+1,start+2},{start+1,start,start+2},{6,5,4}};
   for(int i=0;i<2;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
       m.off(ports,0);
