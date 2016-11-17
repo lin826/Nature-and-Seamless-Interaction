@@ -5,13 +5,14 @@ public class Node{
   String my_ip="0";
   String MODE = "0";
   String STATUS = "0";
+  Policy policy = new Policy();
  
   String serverDir = "/home/pi/Documents/Nature-and-Seamless-Interaction";
   File workingDir = new File(serverDir);
   
  Node(){
    my_ip = getIP();
-   m_setup();
+   policy.m_setup();
  }
  
  void connectOOCSI(String ServerIP,int ServerPort){
@@ -98,7 +99,7 @@ public class Node{
       println(msg.getString("io_msg")+")");
       if(msg.getString("function").equals("setMode")){
         setMode(msg.getString("io_msg"));
-        m_draw(msg.getString("io_msg"));
+        policy.m_draw(msg.getString("io_msg"));
         sendMessage("reportFinish",my_ip);
       }
       else if(msg.getString("function").equals("setSetting")){

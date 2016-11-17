@@ -1,8 +1,8 @@
 import processing.io.*;
 
+class Policy{
 ArrayList<ArrayList<Integer>> channels = new ArrayList<ArrayList<Integer>>(); 
 ArrayList <ArrayList<Integer>> ports = new ArrayList<ArrayList<Integer>>();
-
 
 Methods m;
 Audio audio;
@@ -21,18 +21,22 @@ void m_setup(){
     temp.add(i+3);
     channels.add(temp); 
   }
+  m.alloff();
 }
 
 void m_draw(String mode){
   if(mode.equals("1") && setting_data[1].equals("3")){
     Audio audio = new Audio();
     audio.init("turnon/turnon_start.wav");
+    oneFadeIn();
   } else if(mode.equals("-1")){
     Audio audio = new Audio();
     audio.init("turnon/turnon_"+setting_data[1]+".wav");
+    oneFadeIn();
   } else if(mode.equals("2_"+setting_data[1])){
     Audio audio = new Audio();
     audio.init("install/install_"+setting_data[1]+".wav");
+    oneFadeIn();
   } else if(mode.equals("2")){
     Audio audio = new Audio();
     audio.init("install/install_finish.wav");
@@ -53,11 +57,11 @@ void m_draw(String mode){
 void oneFadeIn(){
   ArrayList<ArrayList<Integer>> perform_list = new ArrayList<ArrayList<Integer>>(); 
   perform_list.add(getPins(0));
-  //m.fadein(perform_list,2000);
+  m.fadein(perform_list,2000);
 }
 
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
-void setPorts(int[] pins){  
+void setPorts(int[] pins){ 
   for(int i : pins){
      ArrayList<Integer> temp  = new ArrayList<Integer> (); 
      for(int  j=0;  j<channels.get(i).size(); j++){
@@ -70,6 +74,7 @@ ArrayList getPins(int p){
   ArrayList<Integer> list = new ArrayList<Integer>();
   for (int i=0; i<4; i++){
     list.add(6*p+i);
+  }
   return list;
 }
 /*for(int i=1;i<5;i++){
@@ -117,3 +122,4 @@ centre: channel 8
 
 
 */
+}
