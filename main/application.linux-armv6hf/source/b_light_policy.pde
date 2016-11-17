@@ -100,14 +100,14 @@ void CircleBlink(){
 }
 void Swing(){
   int start = 3;
-  int[][] p={{start+2,start+1,start},{start+3,start+2,start+1},{start+4,start+3,start+2},
-    {start+3,start+4,start+2},{start+2,start+3,start+4},{start+1,start+2,start+3},
-    {start,start+1,start+2},{start+1,start,start+2},{start+2,start+1,start}};
+  int[][] p={{start+2,start+1,start,start+4,start+3},
+    {start+3,start+2,start+1,start,start+4},{start+4,start+3,start+2,start+1,start},
+    {start+3,start+4,start+2,start+1,start},{start+2,start+3,start+4,start+1,start},{start+1,start+2,start+3,start,start+4},
+    {start,start+1,start+2,start+4,start+3},{start+1,start,start+2,start+4,start+3},{start+2,start+1,start,start+4,start+3}};
   for(int i=0;i<5;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
       setPorts(p[j]);
-      m.alloff();
-      m.on(ports,4000);
+      m.switchon(ports,3,4000);
       delay(200);
     }
   }

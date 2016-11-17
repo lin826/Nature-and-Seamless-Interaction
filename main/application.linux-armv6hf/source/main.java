@@ -285,14 +285,14 @@ public void CircleBlink(){
 }
 public void Swing(){
   int start = 3;
-  int[][] p={{start+2,start+1,start},{start+3,start+2,start+1},{start+4,start+3,start+2},
-    {start+3,start+4,start+2},{start+2,start+3,start+4},{start+1,start+2,start+3},
-    {start,start+1,start+2},{start+1,start,start+2},{start+2,start+1,start}};
+  int[][] p={{start+2,start+1,start,start+4,start+3},
+    {start+3,start+2,start+1,start,start+4},{start+4,start+3,start+2,start+1,start},
+    {start+3,start+4,start+2,start+1,start},{start+2,start+3,start+4,start+1,start},{start+1,start+2,start+3,start,start+4},
+    {start,start+1,start+2,start+4,start+3},{start+1,start,start+2,start+4,start+3},{start+2,start+1,start,start+4,start+3}};
   for(int i=0;i<5;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
       setPorts(p[j]);
-      m.alloff();
-      m.on(ports,4000);
+      m.switchon(ports,3,4000);
       delay(200);
     }
   }
@@ -631,14 +631,18 @@ class Methods {
        type(0);
      }
    }
-   //method: switch on selected lights 
-   //brightness: how bright the light is when turned on, with 0 being no light and 4095 being the brightest 
-   public void gradienton(ArrayList portList,int brightness){
+   
+   public void switchon(ArrayList portList,int firstNum,int brightness){
     this.portList = portList; 
+   
      for(int i=0;i<portList.size();i++){
        p= (ArrayList) portList.get(i);
-       this.brightness = brightness/portList.size()*(i+1); 
-       type(0);
+       if(i>=firstNum)
+         type(1);
+       else {
+         this.brightness = brightness; 
+         type(0);
+       }
      }
    }
   

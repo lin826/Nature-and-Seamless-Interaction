@@ -228,14 +228,18 @@ class Methods {
        type(0);
      }
    }
-   //method: switch on selected lights 
-   //brightness: how bright the light is when turned on, with 0 being no light and 4095 being the brightest 
-   void gradienton(ArrayList portList,int brightness){
+   
+   void switchon(ArrayList portList,int firstNum,int brightness){
     this.portList = portList; 
+   
      for(int i=0;i<portList.size();i++){
        p= (ArrayList) portList.get(i);
-       this.brightness = brightness/portList.size()*(i+1); 
-       type(0);
+       if(i>=firstNum)
+         type(1);
+       else {
+         this.brightness = brightness; 
+         type(0);
+       }
      }
    }
   
