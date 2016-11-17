@@ -302,7 +302,7 @@ public void Swing(){
 }
 public void CircleOn(){
   int[] p = {1,2,3,4,5,6,7,8};
-  for(int i=0;i<ports.size();i++){
+  for(int i=0;i<p.length;i++){
     setPorts(p);
     m.switchon(ports,3,4000);
     delay(200);
