@@ -24,11 +24,12 @@ public class Node{
     // OOCSI channel connect
     oocsi = new OOCSI(this,my_ip, server_ip);
     oocsi.subscribe("Server");
+    oocsi.subscribe(server_ip);
   }
   
- boolean sendMessage(OOCSI oocsi,String function_name , String msg){
+ boolean sendMessage(String function_name , String msg){
     try{
-      oocsi.channel(server_ip)
+      oocsi.channel("Server")
         .data("sender_ip", my_ip)
         .data("function",function_name)
         .data("io_msg",msg).send();
@@ -89,13 +90,7 @@ public class Node{
         }
   }
   
-  public void handleOOCSIEvent(OOCSIEvent msg) {
-    // print out all values in message
-    print(msg.getString("sender_ip")+": ");
-    print(msg.getString("function")+"(");
-    println(msg.getString("io_msg")+")");
-  }
-  public void Server(OOCSIEvent msg){
+  public void handleOOCSIEvent(OOCSIEvent msg){
     if (!STATUS.equals("Unconnected") && (msg.getString("sender_ip").equals("Server"))){
     try{
       print(msg.getString("sender_ip")+": ");
