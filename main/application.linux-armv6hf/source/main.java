@@ -210,7 +210,10 @@ public void m_setup(){
 }
 
 public void m_draw(String mode){
-  if(mode.equals("1") && setting_data[1].equals("3")){
+  int[] p = {0};
+  setPorts(p);
+  m.fadein(ports,4000);
+  /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
   } else if(mode.equals("-1")){
@@ -241,7 +244,7 @@ public void m_draw(String mode){
   } else if(mode.equals("4_2")){
     Sync(); // Sync success that adjust by user
   }
-  
+  */
 }
 public void oneFadeIn(){
   int[] p = {0};
