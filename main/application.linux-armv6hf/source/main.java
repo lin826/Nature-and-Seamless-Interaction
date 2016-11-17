@@ -210,7 +210,7 @@ public void m_setup(){
 }
 
 public void m_draw(String mode){
-  CrossBlink();
+  insideOut();
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
@@ -269,7 +269,7 @@ public void OutsideIn(){
   m.fade(1,ports,4000);
 }
 public void CrossBlink(){
-  int[] p = {0,1,3,5,7};
+  int[] p = {0,2,4,6,8};
   setPorts(p);
   m.blink_more(ports,2,200,4000);
 }
