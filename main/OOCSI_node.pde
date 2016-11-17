@@ -20,11 +20,12 @@ public class Node{
     server_ip = ServerIP;
     server_port = ServerPort;
     oocsi = new OOCSI(this,ServerIP, ServerIP,ServerPort);
-    oocsi.subscribe(server_ip);
+    oocsi.subscribe(ServerIP);
   }
   void connectOOCSI(){
     // OOCSI channel connect
     oocsi = new OOCSI(this,my_ip, server_ip,server_port);
+    oocsi.subscribe(server_ip);
   }
   
  boolean sendMessage(OOCSI oocsi,String function_name , String msg){
