@@ -25,16 +25,7 @@ void m_setup(){
 }
 
 void m_draw(String mode){
-  int[] p = {0};
-  setPorts(p);
-  /*for(ArrayList<Integer> list: ports){
-    for(int i: list){
-      print(i+" ");
-    }
-    println();
-  }*/
-  m.fadein(ports,4000);
-  /*if(mode.equals("1") && setting_data[1].equals("3")){
+  if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
   } else if(mode.equals("-1")){
@@ -65,7 +56,6 @@ void m_draw(String mode){
   } else if(mode.equals("4_2")){
     Sync(); // Sync success that adjust by user
   }
-  */
 }
 void oneFadeIn(){
   int[] p = {0};
@@ -121,12 +111,12 @@ void setPorts(int[] pins){
      }
      ports.add(temp);
   }
-  for(ArrayList<Integer> list: ports){
+  /*for(ArrayList<Integer> list: ports){
     for(int i: list){
       print(i+" ");
     }
     println();
-  }
+  }*/
 }
 /*for(int i=1;i<5;i++){
     adio_list.add(new Audio());
