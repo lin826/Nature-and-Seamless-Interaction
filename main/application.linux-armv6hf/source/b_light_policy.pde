@@ -41,23 +41,11 @@ void m_draw(String mode){
     Audio audio = new Audio();
     audio.init("install/install_finish.wav");
   }
-  //port_list is the list of channels that will be used | to change the channels inside, user can write port_list = new int[] {...}, where ... is replaced with the new set of channels 
-  //int [] port_list = {1,3,5,7};
-  //setPorts(port_list);
-  
-  //this is the default state - off all lights 
-  //m.alloff();
-  
-  //from here on, create the light patterns desired, end before the first } 
-  /*if(node.MODE.equals("1")){
-    audio = new Audio();
-    audio.init("install/install_"+ID+".wav");
-  }*/
 }
 void oneFadeIn(){
   ArrayList<ArrayList<Integer>> perform_list = new ArrayList<ArrayList<Integer>>(); 
-  perform_list.add(getPins(0));
-  m.fadein(perform_list,2000);
+  perform_list.add(channels.get(0));
+  m.fadein(perform_list,4000);
 }
 
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
@@ -69,13 +57,6 @@ void setPorts(int[] pins){
      }     
      ports.add(temp);
   } 
-}
-ArrayList getPins(int p){
-  ArrayList<Integer> list = new ArrayList<Integer>();
-  for (int i=0; i<4; i++){
-    list.add(6*p+i);
-  }
-  return list;
 }
 /*for(int i=1;i<5;i++){
     adio_list.add(new Audio());

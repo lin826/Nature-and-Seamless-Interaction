@@ -79,7 +79,7 @@ public class Node{
   private void setSetting(String s){
     if(s.substring(0,my_ip.length()).equals(my_ip)){
     try {
-      FileWriter output = new FileWriter("../../setting", true);
+      FileWriter output = new FileWriter("/home/pi/Documents/setting", true);
       output.write(s.substring(my_ip.length()+2));
       output.flush();
       output.close();
