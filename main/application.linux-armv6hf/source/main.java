@@ -210,7 +210,7 @@ public void m_setup(){
 }
 
 public void m_draw(String mode){
-  Sync();
+  Swing();
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
@@ -234,8 +234,7 @@ public void m_draw(String mode){
   } else if(mode.equals("3_2")  && setting_data[1].equals("4")){
     CircleBlink(); // Task agree
   } else if(mode.equals("3_2")  && setting_data[1].equals("5")){
-    CircleBlink(); // Task unknown
-    // Task unknown// Task unknown// Task unknown// Task unknown!!!!!
+    Swing(); // Task unknown
   } else if(mode.equals("4")  && setting_data[1].equals("3")){
     insideOut();
   } else if(mode.equals("-4")  && !setting_data[1].equals("3")){
@@ -280,6 +279,18 @@ public void CircleBlink(){
   setPorts(p);
   m.blink_more(ports,2,200,4000);
 }
+public void Swing(){
+  int[][] p={{3,2,1},{4,3,2},{5,4,3},{4,5,3},{3,4,5},{2,3,4},{1,2,3},{2,1,3}};
+  for(int i=0;i<2;i++){ // Come and go twice
+    for(int j=0;j<p.length;j++){
+      setPorts(p[j]);
+      m.alloff();
+      m.gradienton(ports,4000);
+      delay(200);
+    }
+    delay(200);
+  }
+}
 public void Sync(){
   int[] p_1 = {1,3,5,7};
   int[] p_2 = {2,4,6,8};
@@ -314,17 +325,8 @@ public void setPorts(int[] pins){
     println();
   }*/
 }
-/*for(int i=1;i<5;i++){
-    adio_list.add(new Audio());
-    adio_list.get(i-1).init("install/install_"+i+".wav");
-    delay(1000);
-  }
-  adio_list.add(new Audio());
-  adio_list.get(4).init("install/install_finish.wav");*/
-
 
 /*
-
 datasheet of pwm pca9685 is found at this link https://cdn-shop.adafruit.com/datasheets/PCA9685.pdf
 For every channel, there are 4 addresses. One channel represents one light. 
 channel 0: 6,7,8,9
@@ -619,6 +621,16 @@ class Methods {
      for(int i=0;i<portList.size();i++){
        p= (ArrayList) portList.get(i);
        this.brightness = brightness; 
+       type(0);
+     }
+   }
+   //method: switch on selected lights 
+   //brightness: how bright the light is when turned on, with 0 being no light and 4095 being the brightest 
+   public void gradienton(ArrayList portList,int brightness){
+    this.portList = portList; 
+     for(int i=0;i<portList.size();i++){
+       p= (ArrayList) portList.get(i);
+       this.brightness = brightness/i+1; 
        type(0);
      }
    }
