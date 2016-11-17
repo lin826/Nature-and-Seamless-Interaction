@@ -28,7 +28,7 @@ void draw(){
 }
 
 void updateSetting(){
-  String lines[] = loadStrings("../../setting");
+  String lines[] = loadStrings("/home/pi/Documents/setting");
   for (int i = 0 ; i < lines.length; i++) {
     for (int j = 0 ; j < setting_items.length ; j++){
       if(lines[i].length()<setting_items[j].length()) 
