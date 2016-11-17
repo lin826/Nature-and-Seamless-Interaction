@@ -292,7 +292,7 @@ public void Swing(){
     for(int j=0;j<p.length;j++){
       m.alloff();
       setPorts(p[j]);
-      m.gradienton(ports,2000);
+      m.on(ports,2000);
       delay(200);
     }
   }
