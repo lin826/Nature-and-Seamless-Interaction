@@ -640,7 +640,7 @@ class Methods {
        if(i>=firstNum)
          type(1);
        else {
-         this.brightness = brightness/i; 
+         this.brightness = brightness/(i+1); 
          type(0);
        }
      }
