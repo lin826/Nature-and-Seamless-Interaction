@@ -5,7 +5,7 @@ ArrayList <ArrayList<Integer>> ports = new ArrayList<ArrayList<Integer>>();
 
 
 Methods m;
-ArrayList<Audio> adio_list = new ArrayList<Audio>();
+Audio audio = new Audio();
 
 void m_setup(){
   //m is class where different light behaviours are, behaviours can be combined to form desired patterns 
@@ -13,14 +13,14 @@ void m_setup(){
   
   //an arraylist of all lights | channels has been set as the default arraylist, where if all lights are used, it can be used 
   //if there are any change in number if lights used, i < 42 will be changed to i < ?, where ? is the desired 4th address of the last channel used | more information can be found at the bottom of the page 
-  for (int i=6; i<42; i+=4){
+  /*for (int i=6; i<42; i+=4){
     ArrayList<Integer> temp = new ArrayList<Integer> ();
     temp.add(i); 
     temp.add(i+1);
     temp.add(i+2);
     temp.add(i+3);
     channels.add(temp); 
-  }
+  }*/
 }
 
 void m_draw(){
@@ -33,7 +33,9 @@ void m_draw(){
   //m.alloff();
   
   //from here on, create the light patterns desired, end before the first } 
-  
+  if(node.MODE.equals("1")){
+    audio.init("install/install_"+ID+".wav");
+  }
 }
 
 

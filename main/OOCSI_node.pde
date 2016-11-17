@@ -11,7 +11,7 @@ public class Node{
   
  Node(){
    my_ip = getIP();
-   //m_setup();
+   m_setup();
  }
  
  void connectOOCSI(String ServerIP,int ServerPort){
@@ -105,6 +105,7 @@ public class Node{
       else{
         commandLine(msg.getString("function"));
       }
+      m_draw();
     } catch(Exception e){
       println("Next stage error");
     }
