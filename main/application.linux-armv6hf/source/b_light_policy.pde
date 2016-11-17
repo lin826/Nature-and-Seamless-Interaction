@@ -105,8 +105,8 @@ void Swing(){
     {start,start+1,start+2},{start+1,start,start+2},{start+2,start+1,start}};
   for(int i=0;i<5;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
-      m.alloff();
       setPorts(p[j]);
+      m.alloff();
       m.on(ports,2000);
       delay(200);
     }
