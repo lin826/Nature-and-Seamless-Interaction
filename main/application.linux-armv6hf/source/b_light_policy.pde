@@ -102,9 +102,9 @@ void Swing(){
   int[][] p={{3,2,1},{4,3,2},{5,4,3},{4,5,3},{3,4,5},{2,3,4},{1,2,3},{2,1,3}};
   for(int i=0;i<2;i++){ // Come and go twice
     for(int j=0;j<p.length;j++){
+      m.off(ports,0);
       setPorts(p[j]);
-      m.alloff();
-      m.gradienton(ports,4000);
+      m.gradienton(ports,2000);
       delay(200);
     }
     delay(200);
