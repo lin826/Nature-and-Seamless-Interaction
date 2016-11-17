@@ -39,7 +39,7 @@ public void setup(){
   updateSetting();
   printSetting();
   
-  node = new Node();
+  node = new Node(setting_data[2]);
   node.connectOOCSI();
   node.setStatus(setting_data[0]);
   node.setMode(setting_data[2]);
@@ -79,8 +79,8 @@ public class Node{
   String serverDir = "/home/pi/Documents/Nature-and-Seamless-Interaction";
   File workingDir = new File(serverDir);
   
- Node(){
-   my_ip = getIP();
+ Node(String id){
+   my_ip = id;
    policy.m_setup();
  }
  
