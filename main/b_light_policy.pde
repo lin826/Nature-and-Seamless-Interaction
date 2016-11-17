@@ -72,9 +72,10 @@ void allFade(){
 void insideOut(){
   int[] p_1 = {0};
   setPorts(p_1);
+  m.fade(1,ports,4000);
   int[] p_2 = {1,2,3,4,5,6,7,8};
   setPorts(p_2);
-  m.fade(1,ports,4000);
+  m.fade(1,ports,2000);
 }
 void OutsideIn(){
   int[] p_1 = {1,2,3,4,5,6,7,8};
