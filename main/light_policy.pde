@@ -4,40 +4,34 @@ ArrayList<ArrayList<Integer>> channels = new ArrayList<ArrayList<Integer>>();
 ArrayList <ArrayList<Integer>> ports = new ArrayList<ArrayList<Integer>>();
 
 
-Methods m;            
+Methods m;
 
-
-void setup(){
-  
+void m_setup(){
   //m is class where different light behaviours are, behaviours can be combined to form desired patterns 
-  m =  new Methods();
+  //m =  new Methods();
   
   //an arraylist of all lights | channels has been set as the default arraylist, where if all lights are used, it can be used 
   //if there are any change in number if lights used, i < 42 will be changed to i < ?, where ? is the desired 4th address of the last channel used | more information can be found at the bottom of the page 
-  for (int i=6; i<42; i+=4){
+  /*for (int i=6; i<42; i+=4){
     ArrayList<Integer> temp = new ArrayList<Integer> ();
     temp.add(i); 
     temp.add(i+1);
     temp.add(i+2);
     temp.add(i+3);
     channels.add(temp); 
-  }
+  }*/
 }
 
-void draw(){
+void m_draw(){
   
   //port_list is the list of channels that will be used | to change the channels inside, user can write port_list = new int[] {...}, where ... is replaced with the new set of channels 
-  int [] port_list = {1,3,5,7};
-  setPorts(port_list);
+  //int [] port_list = {1,3,5,7};
+  //setPorts(port_list);
   
   //this is the default state - off all lights 
-  m.alloff();
-  
+  //m.alloff();
   
   //from here on, create the light patterns desired, end before the first } 
-  
-  
-  
   
 }
 

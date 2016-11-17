@@ -1,33 +1,21 @@
-import beads.*;
-import java.util.Arrays; 
 
-AudioContext ac;
+int MODE = 0;
+ArrayList<Audio> adio_list = new ArrayList<Audio>();
 
-void setup() {
-  ac = new AudioContext();
-  fileSelected();
+void setup(){
+  for(int i=1;i<5;i++){
+    adio_list.add(new Audio());
+    adio_list.get(i-1).init("install/install_"+i+".wav");
+    delay(1000);
+  }
+  adio_list.add(new Audio());
+  adio_list.get(4).init("install/install_finish.wav");
 }
 
-void fileSelected() {
-  /*
-   * Here's how to play back a sample.
-   * 
-   * The first line gives you a way to choose the audio file.
-   * The (commented, optional) second line allows you to stream the audio rather than loading it all at once.
-   * The third line creates a sample player and loads in the Sample.
-   * SampleManager is a utility which keeps track of loaded audio
-   * files according to their file names, so you don't have to load them again.
-   */
-  String audioFileName = dataPath("test.mp3");
-  SamplePlayer player = new SamplePlayer(ac, SampleManager.sample(audioFileName));
-  
-  Gain g = new Gain(ac, 2, 0.2);
-  g.addInput(player);
-  ac.out.addInput(g);
-  ac.start();
-  
-}
-
-
-void draw() {
+void draw(){
+  for(Audio a: adio_list){
+    //a.play();
+    delay(1000);
+    print("Play!");
+  }
 }
