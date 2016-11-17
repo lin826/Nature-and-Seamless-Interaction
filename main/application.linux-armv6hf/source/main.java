@@ -257,18 +257,18 @@ public void allFade(){
 public void insideOut(){
   int[] p_1 = {0};
   setPorts(p_1);
-  m.fade(1,ports,2000);
+  m.fade(1,ports,1500);
   int[] p_2 = {1,2,3,4,5,6,7,8};
   setPorts(p_2);
-  m.fade(1,ports,1500);
+  m.fade(1,ports,1000);
 }
 public void OutsideIn(){
   int[] p_1 = {1,2,3,4,5,6,7,8};
   int[] p_2 = {0};
   setPorts(p_1);
-  m.fade(1,ports,1500);
+  m.fade(1,ports,1000);
   setPorts(p_2);
-  m.fade(1,ports,2000);
+  m.fade(1,ports,1500);
 }
 public void CrossBlink(){
   int[] p = {0,2,4,6,8};
