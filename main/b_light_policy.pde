@@ -59,7 +59,7 @@ void m_draw(String mode){
   } else if(mode.equals("5")){
     CircleOn(); // Sync success that adjust by user
   } else if(mode.equals("-5") && !setting_data[1].equals("1")){
-    m.allon(); // Sync success that adjust by user
+    m.allon(4000); // Sync success that adjust by user
   } else if(mode.equals("-5") && setting_data[1].equals("1")){
     Quit(); // Sync success that adjust by user
   }
