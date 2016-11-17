@@ -27,12 +27,12 @@ void m_setup(){
 void m_draw(String mode){
   int[] p = {0};
   setPorts(p);
-  for(ArrayList<Integer> list: ports){
+  /*for(ArrayList<Integer> list: ports){
     for(int i: list){
       print(i+" ");
     }
     println();
-  }
+  }*/
   m.fadein(ports,4000);
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
@@ -114,11 +114,13 @@ void Sync(){
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
 void setPorts(int[] pins){
   ports.clear();
-  for(int i : pins){
+  for(int i: pins){
      ArrayList<Integer> temp  = new ArrayList<Integer> (); 
      for(int  j=0;  j<channels.get(i).size(); j++){
        temp.add(channels.get(i).get(j));
+       print(channels.get(i).get(j)+" ");
      }     
+     println();
      ports.add(temp);
      temp.clear();
   }
