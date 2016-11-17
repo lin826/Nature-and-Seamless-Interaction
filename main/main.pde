@@ -1,21 +1,49 @@
+import processing.serial.*;
+import nl.tue.id.oocsi.*;
+import java.io.*;
 
-int MODE = 0;
-ArrayList<Audio> adio_list = new ArrayList<Audio>();
+
+String setting_items[] = {"OOCSI_STATUS","ID","MODE"};
+String setting_data[]  = {"0","0","0"};
+// OOCSI_STATUS: Control the connecting status
+//   Unconnected: Don't react to any OOCSI message.
+// ID: Control the sound to use
+// Mode: Control the task to demo
+
+String ID = "00000";
+Node node;
 
 void setup(){
-  for(int i=1;i<5;i++){
-    adio_list.add(new Audio());
-    adio_list.get(i-1).init("install/install_"+i+".wav");
-    delay(1000);
-  }
-  adio_list.add(new Audio());
-  adio_list.get(4).init("install/install_finish.wav");
+  updateSetting();
+  printSetting();
+  
+  m_setup();
+  
+  node = new Node();
+  node.connectOOCSI();
+  node.setStatus(setting_data[0]);
+  node.setMode(setting_data[2]);
 }
 
 void draw(){
-  for(Audio a: adio_list){
-    //a.play();
-    delay(1000);
-    print("Play!");
+  setting_data[2] = node.MODE;
+  updateSetting();
+}
+
+void updateSetting(){
+  String lines[] = loadStrings("../../setting");
+  for (int i = 0 ; i < lines.length; i++) {
+    for (int j = 0 ; j < setting_items.length ; j++){
+      if(lines[i].length()<setting_items[j].length()) 
+        continue;
+      if(lines[i].substring(0, setting_items[j].length()).equals(setting_items[j]))
+        setting_data[j] = lines[i].substring(setting_items[j].length()+1);
+    }
+  }
+}
+
+void printSetting(){
+  for (int j = 0 ; j < setting_items.length; j++){
+    println(setting_items[j],": ",setting_data[j]);
   }
 }
