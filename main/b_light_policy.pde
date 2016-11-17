@@ -25,7 +25,10 @@ void m_setup(){
 }
 
 void m_draw(String mode){
-  if(mode.equals("1") && setting_data[1].equals("3")){
+  int[] p = {0};
+  setPorts(p);
+  m.fadein(ports,4000);
+  /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
   } else if(mode.equals("-1")){
@@ -49,13 +52,24 @@ void m_draw(String mode){
     CircleBlink(); // Task agree
   } else if(mode.equals("3_2")  && setting_data[1].equals("5")){
     CircleBlink(); // Task unknown
+  } else if(mode.equals("4")  && setting_data[1].equals("3")){
+    insideOut();
+  } else if(mode.equals("-4")  && !setting_data[1].equals("3")){
+    allFade(); // others also wake up 
+  } else if(mode.equals("4_2")){
+    Sync(); // Sync success that adjust by user
   }
-  
+  */
 }
 void oneFadeIn(){
   int[] p = {0};
   setPorts(p);
   m.fadein(ports,4000);
+}
+void allFade(){
+ int[] p = {0,1,2,3,4,5,6,7,8};
+ setPorts(p);
+ m.fade(3,ports,4000);
 }
 void insideOut(){
   int[] p_1 = {0};
@@ -80,6 +94,16 @@ void CircleBlink(){
   int[] p = {1,2,3,4,5,6,7,8};
   setPorts(p);
   m.blink_more(ports,2,1,4000);
+}
+void Sync(){
+  int[] p_1 = {1,3,5,7};
+  int[] p_2 = {2,4,6,8};
+  for(int i=0;i<3;i++){
+    setPorts(p_1);
+    m.on(ports,1,4000);
+    setPorts(p_2);
+    m.on(ports,1,4000);
+  }
 }
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
 void setPorts(int[] pins){
