@@ -12,7 +12,7 @@ public class Node{
   
  Node(){
    my_ip = getIP();
-   m_setup();
+   //m_setup();
  }
  
  void connectOOCSI(String ServerIP,int ServerPort){
@@ -20,6 +20,7 @@ public class Node{
     server_ip = ServerIP;
     server_port = ServerPort;
     oocsi = new OOCSI(this,ServerIP, ServerIP,ServerPort);
+    oocsi.subscribe(server_ip);
   }
   void connectOOCSI(){
     // OOCSI channel connect
