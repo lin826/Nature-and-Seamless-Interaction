@@ -210,7 +210,7 @@ public void m_setup(){
 }
 
 public void m_draw(String mode){
-  insideOut();
+  Sync();
   /*if(mode.equals("1") && setting_data[1].equals("3")){
     audio.init("turnon/turnon_start.wav");
     oneFadeIn();
