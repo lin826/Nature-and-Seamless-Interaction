@@ -285,11 +285,9 @@ public void Sync(){
   int[] p_2 = {2,4,6,8};
   for(int i=0;i<3;i++){
     setPorts(p_1);
-    m.on(ports,1000,4000);
-    m.off(ports,1000);
+    m.blink_more(ports,1,200,4000);
     setPorts(p_2);
-    m.on(ports,1000,4000);
-    m.off(ports,1000);
+    m.blink_more(ports,1,200,4000);
   }
 }
 // if not all lights are to be used, this method can be called to create an arraylist of lights involved 
