@@ -252,8 +252,6 @@ public void m_draw(String mode){
     delay(1000);
     m.alloff();
   } else if(mode.equals("-4")  && !setting_data[1].equals("3")){
-    allFade(); // others also wake up 
-  } else if(mode.equals("4_2")){
     CircleBlink(); // Task agree
     delay(1000);
     CircleBlink();
