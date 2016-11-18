@@ -44,18 +44,36 @@ void m_draw(String mode){
     OutsideIn();
   } else if(mode.equals("3_2")  && setting_data[1].equals("1")){
     CrossBlink(); // Task reject
+    delay(1000);
+    CrossBlink(); // Task reject
   } else if(mode.equals("3_2")  && setting_data[1].equals("2")){
     CircleBlink(); // Task agree
+    delay(1000);
+    CircleBlink(); // Task reject
+    delay(1000);
+    m.alloff();
   } else if(mode.equals("3_2")  && setting_data[1].equals("4")){
     CircleBlink(); // Task agree
+    delay(1000);
+    CircleBlink();
+    delay(1000);
+    m.alloff();
   } else if(mode.equals("3_2")  && setting_data[1].equals("5")){
     Swing(); // Task unknown
   } else if(mode.equals("4")  && setting_data[1].equals("3")){
     insideOut();
+    delay(1000);
+    insideOut();
+    delay(1000);
+    m.alloff();
   } else if(mode.equals("-4")  && !setting_data[1].equals("3")){
     allFade(); // others also wake up 
   } else if(mode.equals("4_2")){
-    Sync(); // Sync success that adjust by user
+    CircleBlink(); // Task agree
+    delay(1000);
+    CircleBlink();
+    delay(1000);
+    m.alloff();
   } else if(mode.equals("5")){
     CircleOn(); // Sync success that adjust by user
   } else if(mode.equals("-5") && !setting_data[1].equals("1")){
