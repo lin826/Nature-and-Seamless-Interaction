@@ -252,6 +252,12 @@ public void m_draw(String mode){
     delay(1000);
     m.alloff();
   } else if(mode.equals("-4")  && !setting_data[1].equals("3")){
+    OutsideIn();
+    delay(1000);
+    OutsideIn();
+    delay(1000);
+    m.alloff();
+  } else if(mode.equals("4_2")){
     CircleBlink(); // Task agree
     delay(1000);
     CircleBlink();
